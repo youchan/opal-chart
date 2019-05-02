@@ -1,6 +1,5 @@
 require "opal_chart/version"
+require "opal_chart/chart"
 
 module OpalChart
-  class Error < StandardError; end
-  # Your code goes here...
 end
