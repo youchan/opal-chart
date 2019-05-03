@@ -11,7 +11,13 @@ RSpec.describe OpalChart::Chart do
       type :bar
       data [1, 2, 3]
     end
-    expect(@chart.type).not_to be nil
-    expect(@chart.data).not_to be nil
+    expect(@chart.type).not_to eq [1, 2, 3]
+    expect(@chart.data).not_to eq :bar
+  end
+
+  context "When assigner gets two or more arguments" do
+    it "raises ArgmentError" do
+      expect { @chart.type :foo, :bar }.to raise_error ArgumentError
+    end
   end
 end
