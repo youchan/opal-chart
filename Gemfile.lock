@@ -3,6 +3,7 @@ PATH
   specs:
     opal_chart (0.1.0)
       opal
+      opal-jquery
 
 GEM
   remote: https://rubygems.org/
@@ -15,6 +16,8 @@ GEM
       hike (~> 1.2)
       parser (= 2.3.3.1)
       sourcemap (~> 0.1.0)
+    opal-jquery (0.4.3)
+      opal (>= 0.10.0, < 0.12.0)
     parser (2.3.3.1)
       ast (~> 2.2)
     rake (10.5.0)

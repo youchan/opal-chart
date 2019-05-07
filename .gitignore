@@ -1,4 +1,5 @@
 /vendor/bundle
+/examples/vendor/bundle
 /.bundle/
 /.yardoc
 /_yardoc/
