@@ -7,47 +7,26 @@ if RUBY_ENGINE == 'opal'
   require 'js'
 
   random = Random.new
-  data = Array.new(6){ random.rand(1..20) }
+  result = Array.new(10){0}
+  sum = 0
+  100.times do
+    10.times do
+      sum += random.rand 2
+    end
+    result[sum.to_i - 1] += 1
+    sum = 0
+  end
 
-  params = {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: data,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
-    }
-  }
+  figure = OpalChart::Figure.new((1..10).to_a)
 
-  chart = OpalChart::NativeChart.new
-  chart.create("ctx", params)
+  figure.add_bar do
+    data result
+    label 'binomial distribution'
+    background_color Array.new(10){"rgba(54, 162, 235, 0.2)"}
+    border_color Array.new(10){"rgba(255, 99, 132, 0.2)"}
+  end
+
+  figure.render
 
 else
   $LOAD_PATH.each do |path|

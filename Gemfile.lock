@@ -18,6 +18,8 @@ GEM
       sourcemap (~> 0.1.0)
     opal-jquery (0.4.3)
       opal (>= 0.10.0, < 0.12.0)
+    opal-test-unit (0.1.2)
+      opal
     parser (2.3.3.1)
       ast (~> 2.2)
     rake (10.5.0)
@@ -41,6 +43,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 2.0)
+  opal-test-unit
   opal_chart!
   rake (~> 10.0)
   rspec (~> 3.0)
